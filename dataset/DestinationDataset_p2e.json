@@ -1,0 +1,21 @@
+{
+	"name": "DestinationDataset_p2e",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ADLS_Alejandrogm",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "themes.parquet",
+				"fileSystem": "lego"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

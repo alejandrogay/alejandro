@@ -1,0 +1,43 @@
+{
+	"name": "orchestrating_lego",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopyPipeline_p2e",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "CopyPipeline_p2e",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Lego_ADLS_to_ASQL_Themes",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "CopyPipeline_p2e",
+						"dependencyConditions": [
+							"Completed"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "Lego_ADLS_to_ASQL_Themes",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2022-09-12T10:51:33Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
